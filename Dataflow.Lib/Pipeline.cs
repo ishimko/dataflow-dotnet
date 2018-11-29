@@ -10,17 +10,13 @@ namespace Dataflow.Lib
     public class Pipeline
     {
         private volatile int _readingCount;
-
         private volatile int _processingCount;
-
         private volatile int _writingCount;
         
         private readonly PipelineConfiguration _pipelineConfiguration;
         
         public ConcurrentBag<int> NumberOfReadingTasks { get; }
-
         public ConcurrentBag<int> NumberOfProcessingTasks { get; }
-        
         public ConcurrentBag<int> NumberOfWritingTasks { get; }
 
         public Pipeline(PipelineConfiguration pipelineConfiguration)
@@ -67,11 +63,13 @@ namespace Dataflow.Lib
         {
             Interlocked.Increment(ref _readingCount);
             NumberOfReadingTasks.Add(_readingCount);
+            
             string result;
             using (var streamReader = new StreamReader(filePath))
             {
                 result = await streamReader.ReadToEndAsync();
             }
+            
             Interlocked.Decrement(ref _readingCount);
             return result;
         }
@@ -80,8 +78,10 @@ namespace Dataflow.Lib
         {
             Interlocked.Increment(ref _processingCount);
             NumberOfProcessingTasks.Add(_processingCount);
+            
             string result = fileContent.ToUpper();
             Thread.Sleep(250); // simulate hard work
+            
             Interlocked.Decrement(ref _processingCount);
             return result;
         }
