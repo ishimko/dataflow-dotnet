@@ -34,7 +34,7 @@ namespace Dataflow.Tests
         {
             var configuration = new PipelineConfiguration(maxParallelism, maxParallelism, maxParallelism);
             var pipeline = new Pipeline(configuration);
-            await pipeline.StartProcessing(_files);
+            await pipeline.PerformProcessing(_files);
             
             WriteSequence(pipeline.NumberOfReadingTasks, "Reading");
             WriteSequence(pipeline.NumberOfProcessingTasks, "Processing");

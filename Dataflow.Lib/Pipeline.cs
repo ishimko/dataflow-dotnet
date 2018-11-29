@@ -31,8 +31,15 @@ namespace Dataflow.Lib
             NumberOfWritingTasks = new ConcurrentBag<int>();
         }
 
-        public async Task StartProcessing(IEnumerable<string> files)
+        public async Task PerformProcessing(IEnumerable<string> files)
         {
+            _readingCount = 0;
+            _processingCount = 0;
+            _writingCount = 0;
+            NumberOfProcessingTasks.Clear();
+            NumberOfProcessingTasks.Clear();
+            NumberOfWritingTasks.Clear();
+            
             var linkOptions = new DataflowLinkOptions {PropagateCompletion = true};
             var readingBlock = new TransformBlock<string, FileWithContent>(
                 async path => new FileWithContent(path, await ReadFile(path)),
