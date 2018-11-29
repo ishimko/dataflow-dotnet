@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dataflow.Lib", "Dataflow.Lib\Dataflow.Lib.csproj", "{DA1ECADD-4A75-411F-B129-A1A6E1FC0D35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dataflow.Tests", "Dataflow.Tests\Dataflow.Tests.csproj", "{5D0FB534-5E28-4152-B316-D2285A654CCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA1ECADD-4A75-411F-B129-A1A6E1FC0D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1ECADD-4A75-411F-B129-A1A6E1FC0D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1ECADD-4A75-411F-B129-A1A6E1FC0D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1ECADD-4A75-411F-B129-A1A6E1FC0D35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D0FB534-5E28-4152-B316-D2285A654CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D0FB534-5E28-4152-B316-D2285A654CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D0FB534-5E28-4152-B316-D2285A654CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D0FB534-5E28-4152-B316-D2285A654CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
