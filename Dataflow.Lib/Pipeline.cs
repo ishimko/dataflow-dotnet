@@ -61,8 +61,8 @@ namespace Dataflow.Lib
 
         private async Task<string> ReadFile(string filePath)
         {
-            Interlocked.Increment(ref _readingCount);
-            NumberOfReadingTasks.Add(_readingCount);
+            int incremented = Interlocked.Increment(ref _readingCount);
+            NumberOfReadingTasks.Add(incremented);
             
             string result;
             using (var streamReader = new StreamReader(filePath))
@@ -76,8 +76,8 @@ namespace Dataflow.Lib
 
         private string ProcessFile(string fileContent)
         {
-            Interlocked.Increment(ref _processingCount);
-            NumberOfProcessingTasks.Add(_processingCount);
+            int incremented = Interlocked.Increment(ref _processingCount);
+            NumberOfProcessingTasks.Add(incremented);
             
             string result = fileContent.ToUpper();
             Thread.Sleep(250); // simulate hard work
@@ -88,8 +88,8 @@ namespace Dataflow.Lib
 
         private async Task WriteFile(FileWithContent fileWithContent)
         {
-            Interlocked.Increment(ref _writingCount);
-            NumberOfWritingTasks.Add(_writingCount);
+            int incremented = Interlocked.Increment(ref _writingCount);
+            NumberOfWritingTasks.Add(incremented);
 
             using (var streamWriter = new StreamWriter(fileWithContent.Path))
             {
