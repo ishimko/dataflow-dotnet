@@ -30,9 +30,11 @@ namespace Dataflow.Tests
         }
 
         [Test]
-        public async Task MaxDegreeOfParallelismTest([Values(1, 10)]int maxParallelism)
+        public async Task MaxDegreeOfParallelismTest([Range(1, 10)]int maxParallelism)
         {
-            var configuration = new PipelineConfiguration(maxParallelism, maxParallelism, maxParallelism);
+            var configuration = new PipelineConfiguration(maxReadingTasks: maxParallelism,
+                maxProcessingTasks: maxParallelism,
+                maxWritingTasks: maxParallelism);
             var pipeline = new Pipeline(configuration);
             await pipeline.PerformProcessing(_files);
             
